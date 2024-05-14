@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Junior</title>
+
+    <style>
+        .container{
+            color: white;
+            background-color: black;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .form{
+            border-radius: 20px;
+            
+            width: 60%;
+            max-width: 250px;
+            height: 300px;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+
+            background-color: #c1c1c1;
+        }
+        .text-field, .btn{
+            border: none;
+            outline: none;
+            padding: 7px;
+            width: 100%;
+            max-width: 150px;
+            border-radius: 5px;
+        }
+        .text-field{
+            margin-top: 7px;
+        }
+        .btn{
+            margin-top: 7px;
+            width: 80px;
+        }
+    </style>
+</head>
+<body class="container">
+    
+    
+    <form class="form">
+        <h1 class="titulo">Seja bem vindo</h1>
+        <input 
+            type="text" 
+            class="text-field"
+            placeholder="email"
+        >
+        <input type="password" class="text-field" placeholder="*****">
+        <div class="row">
+            <button class="btn">Entrar</button>
+            <button class="btn">Cadastrar</button>
+        </div>
+    </form>
+</body>
+</html>

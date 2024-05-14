@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(20) Crud Inicial</title>
+
+    <style>
+        /** seletores de 
+                3. id ( javascript nunca pode repetir)
+                2. class ( btn-primary, input-text-primary sempre precisa repetir)
+                1. elementos ( mais fundamental, h1, h2, input, form, div, ul, li )
+            4. data-atributes ( seletor personalizavel )
+        */
+        body { background-color: #1c1c1c;}
+
+        h1{
+            padding: 20px;
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            border-radius: 60px;
+            background-color: darkviolet;
+        }
+        h2{
+            font-size: 25px;
+            color: white;
+        }
+        form{
+            margin-left: 180px;
+           text-align: center;
+           padding: 20px;
+           height: 150px;
+           width: 500px;
+           border-radius: 20px;
+           background-color: blue; 
+        }
+        input{
+            padding: 8px;
+            border-radius: 7px;
+            border: 0;
+            outline: none;
+        }
+        button{
+            padding: 8px;
+            border-radius: 7px;
+            border: 0;
+            color: white;
+            font-weight: 700;
+            background-color: blueviolet;
+            cursor: pointer;
+            transition: .7s all;
+        }
+        button:hover{
+            color: black;
+            width: 120px;
+            
+            background-color: greenyellow;
+        }
+        table{
+            color: black;
+            padding: 10px;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            background-color: brown;
+        }
+        thead tr{
+            background-color: yellow;
+        }
+        tbody tr{
+            text-align: center;
+            padding: 10px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Categoria</h1>
+
+    <form>
+        <h2>Formulário</h2>
+        <input 
+            type="text"
+            placeholder="Categoria"
+        />
+        <button>Cadastrar</button>
+    </form>
+
+    <hr>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td>Games</td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>Informática</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
