@@ -13,6 +13,10 @@
             type="text"
             placeholder="Categoria"
         />
+        <input 
+            type="text"
+            placeholder="Descrição"
+        />
         <button>Cadastrar</button>
     </form>
     <hr>
@@ -34,5 +38,36 @@
             </tr>
         </tbody>
     </table>
+
+    <style>
+        body{
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+        input, button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: bisque;
+        }
+        button{
+            color: white;
+            background-color: #1c1c1c;
+        }
+        table{
+            width: 50%;
+        }
+        table thead tr{
+            color: white;
+            background-color: blue;
+        }
+        table tbody tr{
+            color: white;
+            background-color: green;
+        }
+    </style>
 </body>
 </html>
