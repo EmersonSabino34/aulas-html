@@ -1,9 +1,14 @@
 function validar(){
     /** pega os dados campos */ 
+    nome = document.getElementById("nome").value;
     email = document.getElementById("email").value;
     senha = document.getElementById("senha").value;
     
     /** verifica se os campos estão vazios */
+    if(!nome){
+        alert("Preencha o campo nome!");
+        return false;
+    }
     if(!email){
         alert("Preencha o campo email!");
         return false;
@@ -17,16 +22,9 @@ function validar(){
 }
 
 function login(){
-    /** verifica se o usuário ou senha tem permissão para entrar */
-    if( email !== "admin@gmail.com"){
-        alert("E-mail não cadastrado");
-    }else if(senha !== "123"){
-        alert("Senha sem permissão!");
-    }else{
-        alert("Login efetuado com sucesso");
-        alert("Seja bem vindo: " + email);
-        location.href = "dashboard.html";
-    }
+    
+    /** redireciona para a página dashboard */
+    location.href = "dashboard.html";
 }
 
 // chama a função criada para validar o formulário
@@ -36,10 +34,8 @@ document.getElementById("entrar")
     validar();
 })
 
-
-// chama tela de cadastrar
 document.getElementById("cadastro")
     .addEventListener("click",  (e) => {
     e.preventDefault()
-    location.href = "cadastro.html";
+    validar();
 })
