@@ -48,20 +48,23 @@
     </style>
 </head>
 <body class="container">
-    
-    
     <form class="form">
         <h1 class="titulo">Seja bem vindo</h1>
-        <input 
-            type="text" 
-            class="text-field"
-            placeholder="email"
-        >
-        <input type="password" class="text-field" placeholder="*****">
+        <input type="text" id="email" class="text-field" placeholder="email">
+        <input type="password" id="senha" class="text-field" placeholder="*****">
         <div class="row">
             <button class="btn">Entrar</button>
             <button class="btn">Cadastrar</button>
         </div>
     </form>
+    <script>
+        var form = document.querySelector("form")
+        var email = form.email
+        var senha = form.senha
+
+        console.log(form)
+        console.log(email)
+        cosole.log(senha)
+    </script>
 </body>
 </html>
