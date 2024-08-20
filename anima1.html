@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 07</title>
+</head>
+<body>
+    <button id="ligar">Ligar</button>
+    <button id="desligar">Desligar</button>
+
+    <style>
+        body{
+            height: 100vh;
+            gap: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+        button{ 
+            padding: 7px;
+            width: 100px;
+            border: none;
+            cursor: pointer;
+            transition: .7s;
+        }
+        button:hover{
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            background-color: blueviolet;
+        }
+    </style>
+
+    <script>
+        var ligar = document.querySelector('#ligar')
+        var desligar = document.querySelector('#desligar')
+        var body = document.querySelector('body')
+
+        ligar.onclick = () => {
+            body.style.backgroundColor = 'white'
+        }
+        desligar.onclick = () => {
+            body.style.backgroundColor = 'black'
+        }
+    </script>
+</body>
+</html>
