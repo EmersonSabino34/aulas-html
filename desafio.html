@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula - 02</title>
+</head>
+<body>
+
+    <header>
+        <h1>Dashboard</h1>
+        <button>Sair</button>
+    </header>
+    <main>
+        <section>
+            <h3>0</h3>
+            <button id="sub">-</button>
+            <input type="text" value="10">
+            <button id="sum">+</button>
+    </main>
+
+    <script>
+        // pegando os valores do h3 e input
+        var h3 = document.querySelector('h3')
+        var input = document.querySelector('input')
+
+        // pegando os valores dos botões
+        var sum = document.querySelector('#sum')
+        var sub = document.querySelector('#sub')
+
+        sum.onclick = (e) => {
+            e.preventDefault()
+            if(input.value > 0 ){
+                let soma = h3.textContent = ( Number(h3.textContent) + Number(input.value) )
+            }else{
+                alert('Valor precisa ser maior que ZERO 0')
+                return
+            }
+        }
+        sub.onclick = (e) => {
+            e.preventDefault()
+            if(Number(input.value) > Number(h3.textContent)){
+                alert('Valor da saída tem que ser igual o saldo ou menor')
+                return
+            }
+            if(h3.textContent > 0) {
+               let soma = h3.textContent = ( Number(h3.textContent) - Number(input.value) )
+            }
+        } 
+    </script>
+</body>
+</html>
