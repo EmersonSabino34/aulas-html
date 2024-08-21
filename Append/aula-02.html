@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02 Append</title>
+</head>
+<body>
+    <h1><code>append()</code> method</h1>
+    
+    <ul class="summary">
+        <li>Let's you easily append multiple nodes</li>
+        <li>Supports combination of text, text nodes</li>
+        <li>Works in modern browers</li>
+    </ul>
+
+    <div id="myDiv"></div>
+
+    <script>
+        const myDiv = document.getElementById('myDiv')
+
+        const h1 = document.createElement('h1')
+        const p = document.createElement('p')
+
+        h1.textContent = 'Esse é um titulo'
+        p.textContent = 'Estudando html, css e javascript'
+
+        myDiv.append(h1, p) // adiciona todos elementos
+        // myDiv.appendChild(h1, p) // adiciona somente 1 elemento
+    </script>
+</body>
+</html>

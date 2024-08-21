@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- https://www.youtube.com/watch?v=0XJyTa6B-GA -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05</title>
+</head>
+<body>
+    <h1>Aula 05 Criando Elementos</h1>
+
+    <main></main>
+
+    <script>
+        // selecionando um elemento
+        var main = document.querySelector('main')
+
+        // criando elementos
+        var el1 = document.createElement('div')
+        var el2 = document.createElement('p')
+
+        // atribuindo valores para os elementos
+        el1.classList = 'container-class'
+        el2.textContent = 'Este é um parágrafo'
+
+        // adiciona um filho
+        main.append(el1, el2) 
+        main.appendChild(el1)
+    </script>
+</body>
+</html>

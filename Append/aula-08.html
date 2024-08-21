@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- https://www.youtube.com/watch?v=KzXZMemQ_Lc -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08</title>
+</head>
+<body>
+    <header>
+        <h1>Aula 08 Criando lista</h1>
+        <div class="btn">
+            <button>Mostrar</button>
+            <button>Google</button>
+        </div>
+    </header>
+
+    <nav></nav>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            width: 100vw;
+            height: 100px;
+            padding: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            color: #fff;
+            margin-bottom: 40px;
+            background-color: rgb(138, 50, 226);
+        }
+        button{
+            height: 30px;
+            width: 70px;
+            cursor: pointer;
+            transition: .9s;
+            border: none;
+            border-radius: 10px;
+            transition: .9s;
+        }
+        button:hover{
+            font-size: .9em;
+            color: #fff;
+            border: 2px solid #fff;
+            background-color: rgba(138, 43, 296, 0.9);
+            opacity: .7;
+        }
+        nav{
+            padding: 50px;
+            margin: 0 auto;
+            max-width: 300px;
+            height: 100%;
+
+            
+        }
+        .linha{
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            background-color: blueviolet;
+            margin-bottom: 2px;
+            transition: .7s;
+            margin: 7px
+        }
+        .linha:hover{
+            cursor: pointer;
+            text-align: center;
+
+            color: #fff;
+            font-weight: bold;
+            font-size: .9rem;
+            background-color: blue;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+            header{
+                background-color: yellow;
+            }
+            button{
+                width: 80px;
+                font-size: 16px;
+                transition: 5s;
+            }
+            button:hover{
+                font-size: 11px;
+            }
+        }
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 18px;
+            }
+            header{
+                background-color: rgb(76, 0, 255);
+            }
+            button{
+                width: 60px;
+                font-size: 10px;
+                transition: 5s;
+            }
+            button:hover{
+                font-size: 11px;
+            }
+        }
+        @media (max-width: 300px) {
+            h1 {
+                font-size: 12px;
+            }
+            header{
+                background-color: red;
+            }
+            button{
+                width: 40px;
+                font-size: 10px;
+                transition: 5s;
+            }
+            button:hover{
+                font-size: 11px;
+            }
+        }
+    </style>
+
+    <script>
+           // selecionando um elemento
+        var body = document.querySelector('body');
+        var btn = document.querySelector('button');
+        var nav = document.querySelector('nav');
+
+        // criando lista
+        var cursos = ['html5', 'css3', 'javascript', 'php'];
+
+        btn.onclick = () => {
+            cursos.map( (el, index) => {
+                const linha = document.createElement('p')
+                linha.setAttribute('id', 'item'+index)
+                linha.setAttribute('class', 'linha')
+                linha.innerHTML = el
+                nav.appendChild(linha) // adiciona na div criada acima
+            })
+        }    
+    </script>
+</body>
+</html>
