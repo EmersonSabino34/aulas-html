@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snaker 1.0</title>
+</head>
+<body>
+    <h1>Aula 02</h1>
+    <canvas width="500" height="500"></canvas>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            min-width: 100vw;
+            min-height: 100vh;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+
+            color: #fff;
+            background-color: #191919;
+        }
+
+        canvas{
+            background-color: #111;
+        }
+    </style>
+
+    <script defer>
+        const canvas = document.querySelector('canvas')
+        const ctx = canvas.getContext("2d")
+        const size = 30
+
+        const drawGrid = () => {
+            ctx.lineWidth = 1
+            ctx.strokeStyle = "white"
+
+            for (let i = size; i < canvas.width; i += size) {
+                // ctx.beginPath()
+                ctx.lineTo(i, 0)
+                ctx.lineTo(i, 600)
+                ctx.stroke()
+
+                ctx.lineTo(0, i)
+                ctx.lineTo(600, i)
+                ctx.stroke()
+            }
+        }
+        drawGrid()
+    </script>
+</body>
+</html>
