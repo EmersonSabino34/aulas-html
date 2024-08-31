@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula 09 formularios</title>
+</head>
+<body>
+
+    <form name="myForm">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome">
+
+        <label for="idade">Idade</label>
+        <input type="text" name="idade">
+
+        <p>Sexo:</p>
+        <input type="radio" id="masculino" name="genero" value="masculino">
+        <label for="masculino">Masculino</label>
+        
+        <input type="radio" id="feminino"  name="genero" value="feminino">
+        <label for="feminino">Feminino</label>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+       const myForm = document.forms.myForm;
+       const name = myForm.nome
+       console.log(myForm);
+       console.log(name);
+    </script>
+    
+</body>
+</html>
