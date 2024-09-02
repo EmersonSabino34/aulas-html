@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Api</title>
+</head>
+<body>
+    <div id="dados"></div>
+
+    <style>
+        span{
+            display: block;
+            color: black;
+            padding: 7px;
+            font-weight: bold;
+            background-color: aqua;
+            font-size: 20px;
+        }
+        strong{ background-color: blue; color: white; padding: 7px; font-size: 20px;}
+        p{background-color: blueviolet; padding: 7px; color: white; font-size: 20px;}
+    </style>
+
+    <script defer>
+        var url = "http://localhost:3000/tb_login"
+        var linha = document.querySelector("#dados");
+        console.log(linha)
+
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then( data => {
+                console.log(data);
+
+                 data.forEach(item => {
+                    var id = document.createElement("span");
+                    var email = document.createElement("p");
+                    var senha = document.createElement("strong");
+
+                    id.textContent = item.id;
+                    email.textContent = item.email;
+                    senha.textContent = item.senha;
+
+                    // linha.appendChild(id, email)
+                    linha.append(id, email, senha)
+                });
+                
+            })
+    </script>
+</body>
+</html>
