@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criando elementos</title>
+</head>
+<body>
+    <!-- Perceba aqui não colocamos nenhum html manual tudo no Javascript -->
+
+    <script>
+        /** criando um conteúdo paragrafo */
+        var novoParagrafo = document.createElement('p');
+        console.log(novoParagrafo)
+        novoParagrafo.textContent = "Esse e o conteúdo"
+
+        /** criando um span */
+        var span = document.createElement('span');
+        span.innerHTML = "conteúdo da span"
+        console.log(span)
+
+        /** criando um input Nome */
+        var inputNome = document.createElement('input')
+        inputNome.setAttribute('type', 'text') /* adiciona um tipo para o input*/
+        inputNome.setAttribute('placeholder', 'digite seu nome') /* adiciona um placeholder para o input*/
+        inputNome.setAttribute('class', 'form-control')
+        console.log(inputNome)
+
+          /** criando um input E-mail */
+        var inputEmail = document.createElement('input')
+        inputEmail.setAttribute('type', 'text') /* adiciona um tipo para o input*/
+        inputEmail.setAttribute('placeholder', 'digite seu nome') /* adiciona um placeholder para o input*/
+        inputEmail.setAttribute('class', 'form-control')
+        console.log(inputEmail)
+
+        /** criando um button */
+        var button = document.createElement('button');
+        button.setAttribute('type', 'button'); /* adiciona um tipo para o botão*/
+        button.setAttribute('onclick', "entrar()") /* adiciona chamada a uma função*/
+        button.setAttribute('class', 'btn btn-primary'); /* adiciona um classe para o botão*/
+        button.textContent = "Cadastrar" /* adiciona um texto para o botão*/
+        console.log(button)
+
+        /**Criando uma div*/
+        var div = document.createElement('div');
+        console.log(div)
+
+        // adicionando um atributo na div
+        div.setAttribute('class', 'row')
+        console.log(div)
+
+        // adicionando os elementos a
+        div.appendChild(novoParagrafo)
+        div.appendChild(span)
+        div.appendChild(inputNome)
+        div.appendChild(inputEmail)
+        div.appendChild(button)
+
+        // adicionado no body
+        document.body.appendChild(div)
+
+
+        function entrar(){
+            alert('Hello World! Javascript');
+        }
+        
+    </script>    
+</body>
+</html>
