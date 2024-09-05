@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="button.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Inputs</title>
+</head>
+<body>
+    <div class="container">
+        <button class="btn btn1">
+            <i class="fa-solid fa-recycle"></i>
+        </button>
+        
+        <div class="input-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="nome">
+        </div>
+    </div>
+
+    <style>
+        .container{
+            gap: 5px;
+            display: flex;
+        }
+        i{ color: #c1c1c1; }
+        input{
+            padding: 10px;
+            outline: none;
+            border: none;
+            border-radius: 7px;
+        }
+        .input-search{
+
+            width: 50%;
+            padding: 7px;
+            border-radius: 7px;
+            transition: .9s;
+            background-color: white;
+        }
+        .input-search:hover{
+            width: 80%;
+        }
+    </style>
+</body>
+</html>
