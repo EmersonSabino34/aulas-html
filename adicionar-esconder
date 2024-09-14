@@ -1,4 +1,5 @@
  <script defer>
+     alert('ok')
       var card = document.querySelector('.card');
       var class_mostrar = document.querySelector(".esconder");
 
