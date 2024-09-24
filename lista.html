@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./switch.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>WebWhatsapp</title>
+</head>
+
+<body>
+    <main>
+        <h2>Alarme</h2>
+        <div class="row">
+            <div class="col">
+                <h3>01:00</h3>
+                <p>Uma vez</p>
+            </div>
+            <div class="button">
+                <input type="checkbox" id="slider">
+                <label for="slider" class="switch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3>01:00</h3>
+                <p>Diariamente | o alarme disparará em 18h.</p>
+            </div>
+            <div class="button">
+                <input type="checkbox" id="slider">
+                <label for="slider" class="switch">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: #7777;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1c1c1c;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-radius: 20px;
+            max-width: 500px;
+            margin: 10px;
+            background-color: #7777;
+            opacity: .5;
+        }
+
+        .row:hover {
+            opacity: 1;
+        }
+
+        #slider {
+            display: none;
+        }
+
+        .slider {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            transition: .9s;
+        }
+
+        .switch {
+            position: relative;
+            background-color: #777;
+            width: 120px;
+            height: 60px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            transition: .9s;
+            cursor: pointer;
+        }
+
+        /* efeitos */
+        #slider:checked~.switch {
+            background-color: blue;
+        }
+
+        #slider:checked~.switch .slider {
+            transform: translateX(60px)
+        }
+    </style>
+</body>
+
+</html>
