@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <!--
+        https://www.youtube.com/watch?v=kFJXN3nVam0
+    -->
+</head>
+<body>
+    <div id="container">
+        <div class="tab-buttons">
+            <button class="tab-btn" content-id="home">Home</button>
+            <button class="tab-btn" content-id="switch-1">Switech 2</button>
+            <button class="tab-btn" content-id="switch-2">HeadSet</button>
+        </div>
+        
+        <div class="tab-contents">
+            <div class="content show" id="home">
+                <img src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2024/07/01/ps-portal-1ji77ql3oy7ud.png" alt="" class="content-img">
+
+                <div class="infos">
+                    <h1 class="content-title">PlayStation 5 portátil</h1>
+                    <p class="content-description">
+                        Antigo Project Q passa a se chamar PlayStation Portal e chega no final do ano; preço é de US$ 199,99 nos Estados Unidos, aproximadamente R$ 970.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content" id="switch-1">
+                <img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_500/ncom/en_US/switch/site-design-update/photo01" alt="" class="content-img">
+
+                <div class="infos">
+                    <h1 class="content-title">Nintendo Switch 2</h1>
+                    <p class="content-description">
+                        Switch 2, o console ainda não foi revelado oficialmente pela Nintendo e nem mesmo temos informações mais específicas de forma oficial. Contudo, é esperado que a empresa mostre muito em breve o seu mais novo videogame, que deve chegar em 2025.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content" id="switch-2">
+                <img src="https://resource.logitechg.com/w_1206,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/audio/a50-gen4/a50-gallery-xbox-01.png?v=1" alt="" class="content-img">
+
+                <div class="infos">
+                    <h1 class="content-title">Estação base + sem fio ASTRO A50</h1>
+                    <p class="content-description">
+                        Com design revolucionário, acústica avançada e conforto ergonômico, o A50 Wireless + Base Station oferece uma experiência de jogo inesquecível.
+                        <a target="_blank" href="https://www.logitechg.com/pt-br/products/gaming-audio/a50-gen-4.939-001681.html">Site</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+
+            border: none;
+        }
+        body{
+            background-color: #6366f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        button{
+            padding: 4px 20px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #6366f2;
+            margin-bottom: 10px;
+        }
+        #container{
+            background-color: #f0f8ff;
+            height: 30vh;
+            width: 600px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        .content{
+            display: none;
+        }
+        .content.show{
+            display: flex;
+        }
+        .content-img{
+            width: 50%;
+            height: 250px;
+        }
+    </style>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-btn');
+
+            // alert('hello world')
+
+            tabs.forEach(tab => tab.addEventListener('click', () => tabClicked(tab)));
+
+            const tabClicked = (tab) => {
+                tabs.forEach(tab => tab.classList.remove('active'));
+                tab.classList.add('active');
+
+                const contents = document.querySelectorAll('.content');
+                contents.forEach(content => content.classList.remove('show'));
+
+                const contentId = tab.getAttribute('content-id');
+                const content = document.getElementById(contentId);
+                //const content = document.querySelectorAll('#contentId')
+
+                content.classList.add('show');
+            }
+    </script>
+
+    
+</body>
+</html>
