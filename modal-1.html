@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal 2</title>
+</head>
+<body>
+    <button class="btn" onclick="abrirModal()">Click aqui</button>
+
+    <div class="janela-modal" id="janela-modal">
+        <div class="modal">
+            <button class="fechar" id="fechar">X</button>
+            <h1>Janela Modal</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, excepturi esse! 
+                Corrupti, recusandae expedita! Atque, deleniti quidem adipisci ea tempora consectetur 
+                illo laboriosam in quam cupiditate, autem alias reprehenderit odio.
+            </p>
+        </div>
+    </div>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+        }
+        body{
+            color: #fff;
+            height: 100vh;
+            background-color: #fff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .btn{
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            padding: 7px;
+            background-color: #ff4c2c;
+            transition: .9s;
+            opacity: .5;
+            position: absolute;
+        }
+        .btn:hover{
+            opacity: 1;
+            transform: 1.05;
+        }
+        .janela-modal{
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+
+            background-color: #00000060;
+        }
+        .modal{
+            position: relative;
+            width: 20%;
+            min-width: 250px;
+            min-height: 200px;
+            background-color: #ffffff96;
+            border-radius: 10px;
+            backdrop-filter: blue(10px);
+
+            padding: 50px;
+        }
+
+        .fechar{
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: red;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .janela-modal.abrir{
+            display: flex;
+        }
+
+        @keyframes abrirModal {
+            from {
+                opacity: 0;
+                transform: translate3d( 0px, 2000px, 0);
+            } to {
+                opacity: 1;
+                transform: translate3d(0,0,0);
+            }
+        }
+        .abrir .modal{
+            /* animation: abrirModal 0.5s ease-in-out; */
+            animation: abrirModal 0.8s;
+        }
+    </style>
+
+    <script>
+        let btnPrimary = document.querySelector('.btn');
+        let btnFechar = document.querySelector('.fechar');
+        const modal = document.querySelector("#janela-modal");
+
+        function abrirModal(){
+
+            btnPrimary.style.display = "none";
+            modal.classList.add('abrir')
+
+           modal.addEventListener('click', (e) => {
+                if( e.target.id == 'fechar' || e.target.id == 'janela-modal' ) {
+                    modal.classList.remove('abrir')
+                    btnPrimary.style.display = "block";
+                }
+           })
+        }
+    </script>
+</body>
+</html>
