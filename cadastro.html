@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastro</title>
+</head>
+<body>
+    <form>
+        <h1>Faça seu cadastro agora</h1>
+        <input type="file" accept="jpeg, png" placeholder="escolha sua foto">
+        <input type="text" placeholder="nome completo">
+        <input type="text" placeholder="email">
+        <input type="password" placeholder="senha">
+        <input type="password" placeholder="confirmar senha">
+        <button>Cadastrar</button>
+    </form>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            color: #fff;
+            height: 100vh;
+            background-color: #000;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            width: 350px;
+            height: 450px;
+            padding: 20px;
+            background-color: #7777;
+            border-radius: 10px;
+
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        h1{ text-align: center;}
+        input[type="file"]{
+            background-color: #1c1c1c;
+        }
+        input{
+            padding: 10px;
+            border-radius: 15px;
+        }
+        button{
+            margin-top: 20px;
+            border: none;
+            padding: 10px;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 15px;
+            background-color: #1c1c1c;
+        }
+    </style>
+</body>
+</html>
