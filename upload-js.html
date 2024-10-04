@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <!-- https://www.youtube.com/watch?v=gXXmQeZOHKY -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+</head>
+<body>
+    <label class="picture" tabIndex="0">
+        <input type="file" accept="image/*" class="picture__input" id="picture__input" />
+        <span class="picture__img"></span>
+    </label>
+
+    <style>
+        body{
+            background-color: #1c1c1c;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+        #picture__input{
+            display: none;
+        }
+        .picture__img{
+            width: 100px;
+            height: 100px;
+            
+            border-radius: 50%;
+        }
+        .picture{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ccc;
+            display: block;
+            cursor: pointer;
+            opacity: .5;
+            color: transparent;
+            transition: .9s;
+            font-weight: bold;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .picture:hover{
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .picture:active{
+            transform: scale(1.1);
+            background-color: blueviolet;
+        }
+    </style>
+
+<script>
+    const inputFile = document.querySelector("#picture__input")
+    const pictureImage = document.querySelector(".picture__img")
+    const pictureImageTxt = " Selecione";
+
+    pictureImage.innerHTML = pictureImageTxt;
+
+    inputFile.addEventListener("change", (e) => {
+        e.preventDefault();
+        const inputTarget = e.target;
+        console.log(inputTarget);
+        const file = inputTarget.files[0];
+
+        if(file){
+            // pictureImage.innerHTML = 'Selecionado';
+            const reader = new FileReader();
+            reader.addEventListener('load', function(e) {
+                const readerTarget = e.target;
+
+                const img = document.createElement('img');
+                img.src = readerTarget.result;
+                img.classList.add('picture__img');
+                pictureImage.innerHTML = ''
+
+                pictureImage.appendChild(img);
+            })
+            reader.readAsDataURL(file);
+        }else{
+            pictureImage.innerHTML = pictureImageTxt;
+        }
+
+    })
+</script>
+</body>
+</html>
