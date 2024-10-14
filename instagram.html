@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+</head>
+<body>
+    <form>
+        <img class="principal" width="250" src="./principal.png" alt="">
+        <input type="text" placeholder="E-mail">
+        <input type="text" placeholder="Senha">
+        <button>Entrar</button>
+
+        <img width="220" src="./ou.png" alt="">
+
+        <div class="cadastrar">
+            <img width="88" src="./img-botao.png" alt="">
+            <a href="#">
+                Cadastra-se
+            </a>
+        </div>
+    </form>
+
+    <style>
+        *{ margin: 0; padding: 0; box-sizing: border-box; }
+        body{
+            /* Alinahmentos */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            max-width: 350px;
+            padding: 20px;
+            
+            /* Alinahmentos */
+            height: 70vh;
+            display: flex;  
+            align-items: center;
+            flex-direction: column;
+        }
+        .principal{
+            padding-top: 90px;
+            padding-bottom: 20px;
+        }
+        input{
+            padding-left: 20px;
+        }
+        button, input{
+            height: 45px;
+            margin: 10px;
+            width: 100%;
+            border: none;
+            background-color: #D9D9D9;
+        }
+        button{
+            color: #fff;
+            font-weight: 600;
+            border-radius: 7px;
+            margin-bottom: 60px;
+            background-color: #1D8FF8;
+        }
+        .cadastrar{
+            margin-top: 20px;
+
+            /* Alinahmentos */
+            display: flex;
+            align-items: center;
+        }
+        /* Responsividade */
+        @media screen and ( max-width: 500px ) {
+            .principal{
+                padding-top: 10px;
+                padding-bottom: 20px;
+            }
+        }
+    </style>
+</body>
+</html>
