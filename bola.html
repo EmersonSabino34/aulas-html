@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anima CSS</title>
+</head>
+<body>
+    <h1>Animando</h1>
+
+    <img class="animar"  width="100" src="http://encurtador.com.br/2xQsw" alt="">
+
+    <style>
+        *{ margin: 0; padding: 0; box-sizing: border-box; }
+        body{
+            height: 100vh;
+            color: #fff;
+            overflow: hidden;
+            background-color: #000;
+            
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .animar {
+            position: relative;
+            animation: flutar 2s ease-in-out infinite alternate
+        }
+
+        @keyframes flutar{
+            0% { top: 0; opacity: 1; transform: rotate(360deg); }
+            100% { top: 360px; opacity: .1; }
+        }
+    </style>
+</body>
+</html>
