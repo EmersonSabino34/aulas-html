@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja1</title>
+</head>
+<body>
+    <h1>HTML Reactivo</h1>
+    <input type="text"   placeholder="nome"  id="nome" />
+    <input type="number" placeholder="idade" id="idade" />
+    <p>Nome:  <span class="nome">  </span>   </p>
+    <p>Idade: <span class="idade"> </span>  </p>
+
+    <script>
+        const nome  = document.querySelector('#nome')
+        const idade = document.querySelector('#idade')
+
+        const nomeText  = document.querySelector('.nome')
+        const idadeText = document.querySelector('.idade')
+        
+        nome.addEventListener("keyup", function(e) {
+            e.preventDefault()
+
+            nomeText.textContent = nome.value
+        })
+
+        idade.addEventListener("keyup", function(e) {
+            e.preventDefault()
+
+            idadeText.textContent = idade.value
+        })
+    </script>
+</body>
+</html>
