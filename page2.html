@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nosso-pet</title>
+</head>
+<body>
+    <header>
+        <h1>lista para doação</h1>
+    </header>
+    <main>
+        <img src="image/lulu-1.png" alt=""> 
+        <img src="image/lulu-2.png" alt="">
+        <img src="image/lulu-3.png" alt="">
+        <img src="image/lulu-4.png" alt="">
+        <img src="image/lulu-5.png" alt="">
+        <img src="image/lulu-6.png" alt="">
+        <img src="image/lulu-7.png" alt="">
+        <img src="image/lulu-8.png" alt="">
+    </main>
+
+    <style>
+        body{
+            height: 100vh;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #000;
+        }
+        header, main{
+            max-width: 1200px;
+        }
+        header{
+            
+            color: #fff;
+            padding: 20px 270px;
+            font-size: 30px;
+            background-color: red;
+        }
+        h1{
+            text-transform: uppercase;
+        }
+        main{
+            /* centralizar os elementos */
+            gap: 20px;
+            
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        img{
+            cursor: pointer;
+            transition: .2s;
+        }
+        img:hover{
+            border-radius: 50%;
+            transform: scale(1.2);
+        }
+
+        @media screen and (max-width: 500px) {
+            body{
+                margin: 0; padding: 0;
+            }
+            header{
+                margin: 0;
+                position: sticky;
+                margin-bottom: 10px;
+            }
+            h1{
+                font-size: 16px;
+            }
+            main{
+                overflow-y: scroll;
+            }
+            img {
+                width: 60%;
+            }
+        }
+    </style>
+</body>
+</html>
