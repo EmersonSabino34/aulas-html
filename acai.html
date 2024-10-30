@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <img width="200" src="./image/açai.png" alt="">
+        <ul>
+            <li>
+                home
+            </li>
+            <li>
+                produto
+            </li>
+            <li>
+                contacto
+            </li>
+        </ul>
+        <button>login</button>
+    </header>
+    <form>
+        lista de cadastro
+    </form>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            list-style: none;
+        }
+        body {
+            background-color: coral;
+
+            /* propriedades para alinahr */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        header{
+            width: 100vw;
+            height: 100px;
+            
+            background-color: bisque;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        header img{
+            transition: .9s;
+            padding: 20px;
+        }
+        header img:hover{
+            transform: scale(0.7) rotate(180deg);
+            
+            
+        }
+        header ul{
+            gap: 10px;
+            display: flex;
+        }
+        header ul li{
+            color: #0f0f0f;
+            font-size: 1.5rem;
+            padding: 10px;
+            cursor: pointer;
+
+           text-transform: capitalize;
+           /* text-transform: uppercase; */
+           transition: 0.3s; 
+
+        }
+        header ul li:hover{
+            background-color: coral;
+            border-radius: 7px;
+            color: white;
+            font-weight: 600;
+
+            transform: scale(1.3);
+        }
+        header button{
+            padding: 10px 20px;
+            border: 0;
+            background-color: coral;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 7px;
+
+            transition: .3s;
+        }
+        header button:hover{
+            cursor: pointer;
+            font-weight: bold;
+            background-color: red;
+            transform: scale(1.3) rotate(360deg);
+            
+
+            text-transform: uppercase;
+        }
+
+        @media screen  and (max-width: 500px) {
+            ul, button{
+                display: none !important;
+            }
+        }
+    </style>
+</body>
+</html>
