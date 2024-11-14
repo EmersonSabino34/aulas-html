@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Treinamento</title>
+</head>
+<body>
+    <button id="btn-entrar">Entrar</button>
+    <form>
+        <h1>Area Administrativa</h1>
+        <input type="text" placeholder="exemplo@gmail.com">
+        <input type="text" placeholder="*******************">
+        <div class="btn-group">
+            <button>Entrar</button>
+            <button id="btn-sair">Sair</button>
+        </div>
+    </form>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            color: white;
+            background-color: black;
+
+            display: flex;
+            justify-content: center;
+        }
+        form{
+            width: 70%;
+            max-width: 500px;
+            height: 30%;
+            border-radius: 10px;
+            background-color: #1d1d1d;
+
+
+            margin-top: 50px;
+            padding: 20px;
+            gap: 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1{
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        input{
+            width: 90%;
+            border: none;
+            padding: 10px;
+            color: white;
+            outline: none;
+            border: none;
+            border-radius: 7px;
+            background-color: black;
+        }
+        .btn-group{
+            gap: 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+        }
+        button{
+            width: 100px;
+            padding: 9px;
+            color: white;
+            cursor: pointer;
+            border-radius: 7px;
+            background-color: black;
+            border: none;
+            transition: .5s;
+            letter-spacing: 1.5px;
+        }
+        button:hover{
+            background-color: green;
+        }
+        #btn-entrar{
+            position: absolute;
+            display: none;
+            width: 120px;
+            top: 100px;
+            background-color: green;
+        }
+        #btn-entrar:hover{
+            cursor: pointer;
+        }
+
+        @media screen and ( max-width: 1400px ) {
+            form{
+                width: 55%;
+
+                gap: 10px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            input{
+                width: 90%;
+            }
+        }
+        @media screen and ( max-width: 700px ) {
+            form{
+                width: 55%;
+
+                gap: 10px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            h1{
+                font-size: 25px;
+                text-align: center;
+            }
+            input{
+                width: 90%;
+            }
+            .btn-group{
+                width: 90%;
+            }
+            button{
+                font-size: 12px;
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        document.querySelector("#btn-sair").addEventListener("click", function(event) {
+            event.preventDefault();
+            alert("Saindo...");
+
+            document.querySelector("form").style.display="none";
+
+            document.querySelector("#btn-entrar").style.display="block";
+            
+        })
+        document.querySelector("#btn-entrar").addEventListener("click", function(event) {
+            event.preventDefault();
+
+            document.querySelector("form").style.display = "flex"
+            document.querySelector("#btn-entrar").style.display="none";
+        })
+    </script>
+</body>
+</html>
