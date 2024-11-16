@@ -1,5 +1,5 @@
  <script defer>
-     alert('ok')
+     alert('carregou')
       var card = document.querySelector('.card');
       var class_mostrar = document.querySelector(".esconder");
 
