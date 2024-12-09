@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form>
+        <h3>Login</h3>
+        <input id="email" type="text" placeholder="email">
+        <input id="senha" type="text" placeholder="senha" >
+
+        <button>Entrar</button>
+        <p></p>
+    </form>
+
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            color: #fff;
+            background-color: #1d1d1d;
+            
+            display: flex;
+            align-items: start;
+            justify-content: center;
+        }
+        form{
+            width: 25%;
+            height: 280px;
+            padding: 10px;
+
+            gap: 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            background-color: blueviolet;
+            border: 20px;
+        }
+        form input{
+            border: none;
+            outline: none;
+            padding: 10px;
+            border-radius: 7px;
+        }
+        form button{
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            background-color: green;
+        }
+    </style>
+
+    <script>
+        // variaveis 3
+        var email = document.querySelector("#email")
+        var senha = document.querySelector("#senha")
+        var form = document.querySelector("form")
+        var btnEntrar = document.querySelector("button")
+
+        form.style.display = "none"
+
+        setTimeout( () => {
+            form.style.display = "flex"
+        }, 4000)
+
+        console.log(email)
+        console.log(senha)
+        console.log(btnEntrar)
+
+        btnEntrar.onclick = (event) => {
+            event.preventDefault()
+
+            if(email.value == ""){
+                alert("Por favor preencher o campo email")
+                return false
+            }
+
+            if(senha.value == ""){
+                alert("Por favor preencher o campo senha")
+                return false
+            }
+            window.location.href = "dashboard.html"
+
+        } 
+       
+    </script>
+</body>
+</html>
