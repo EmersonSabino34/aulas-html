@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jogo dA MHUFYYUFRYUFGUI</title>
+</head>
+<body>
+    <img onclick="funcImg1()"   id="img1" src="./cachorro1.png" alt="">
+    <img  onclick= "funcImg2()" id="img2" src="./cachorro2.png" alt="">
+    <img  onclick="funcImg3()"  id="img3" src="./cachorro3.png" alt="">
+    <img  onclick="funcImg4()"  id="img4" src="./cachorro4.png" alt="">
+    <img  onclick="funcImg5()"  id="img5" src="./cachorro5.png" alt="">
+    <img  onclick="funcImg6()"  id="img6" src="./cachorro6.png" alt="">
+
+    <style>
+        body{
+            align-items: center;
+
+            gap: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            background-color: black;
+        }
+        img{
+            cursor: pointer;
+            width: 200px;
+            height: 100px;
+
+            transition: .9s;
+        }
+        img:hover{
+            /*
+            margin-top: 50px;
+
+            width: 400px;
+            height: 200px;
+            */
+            border-radius: 20px;
+
+            border: 10px solid greenyellow;
+        }
+    </style>
+
+
+    <script>
+        var feio = "https://img.freepik.com/psd-gratuitas/retrato-de-solo-adoravel-cachorro-pug_53876-74000.jpg"
+        var img1 = document.querySelector('#img1')
+        var img2 = document.querySelector("#img2")
+        var img3 = document.querySelector("#img3")
+        var img4 = document.querySelector("#img4")
+        var img5 = document.querySelector("#img5")
+        var img6 = document.querySelector("#img6")
+
+        console.log(img1)
+        console.log(img2)
+        console.log(img3)
+        console.log(img4)
+        console.log(img5)
+        console.log(img6)
+
+        function funcImg1(){
+            alert('oi')
+            img1.setAttribute('src', feio)
+        }
+        
+        function funcImg2(){
+            alert('tchau')
+            img2.setAttribute("src", feio)
+        }
+
+        
+        function funcImg3(){
+            alert('ate ja')
+            img3.setAttribute("src", feio)
+        }
+        
+        function funcImg4(){
+            alert('ola')
+            img4.setAttribute("src", feio)
+        }
+
+        function funcImg5(){
+            alert('uahct')
+            img5.setAttribute("src", feio)
+        }
+
+        function funcImg6(){
+            alert('io')
+            img6.setAttribute("src", feio)
+        }
+    </script>
+
+</body>
+</html>
