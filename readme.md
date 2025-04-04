@@ -2,7 +2,7 @@
 * HTML,
 * CSS,
 * Javascript
-  
+
 configurando o git no computador
     $ git config --global user.name "Emerson Sabino"
     $ git config --global user.email emerson90_sabino@hotmail.com
