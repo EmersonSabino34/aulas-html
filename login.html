@@ -3,32 +3,718 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Junior</title>
+    <title>Login - LaserPro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --secondary: #06B6D4;
+            --accent: #F59E0B;
+            --dark: #1F2937;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            --success: #10B981;
+            --error: #EF4444;
+            --warning: #F59E0B;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Login Container */
+        .login-container {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            z-index: 1;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Left Side - Branding */
+        .login-branding {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 3rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-branding::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .branding-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .branding-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .features-list li::before {
+            content: '✨';
+            font-size: 1.2rem;
+        }
+
+        /* Right Side - Login Form */
+        .login-form {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            color: var(--dark);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: #6B7280;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9CA3AF;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        /* Remember me & Forgot password */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .forgot-password {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .forgot-password:hover {
+            opacity: 0.8;
+        }
+
+        /* Login Button */
+        .login-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .login-btn:hover::before {
+            left: 100%;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.4);
+        }
+
+        .login-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Loading spinner */
+        .btn-loading {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Social Login */
+        .social-login {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .social-login p {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 0.875rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            background: white;
+            color: #374151;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Register Link */
+        .register-link {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .register-link p {
+            color: #6B7280;
+            margin-bottom: 1rem;
+        }
+
+        .register-btn {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .register-btn:hover {
+            color: var(--primary-dark);
+            transform: translateX(5px);
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            color: white;
+            font-weight: 500;
+            z-index: 1000;
+            transform: translateX(400px);
+            transition: all 0.3s ease;
+            max-width: 400px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4);
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, var(--error) 0%, #DC2626 100%);
+            box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.4);
+        }
+
+        .notification.warning {
+            background: linear-gradient(135deg, var(--warning) 0%, #D97706 100%);
+            box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                border-radius: 20px;
+            }
+
+            .login-branding,
+            .login-form {
+                padding: 2rem;
+            }
+
+            .branding-content h1 {
+                font-size: 2rem;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+            }
+
+            .form-options {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
+
+        /* Loading overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .loading-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+    </style>
 </head>
 <body>
-    
-    <h1 class="titulo">Seja bem vindo</h1>
-    
-    <form class="form">
-        <input 
-            type="text" 
-            name="email"
-            placeholder="email" 
-            class="form-control"
-        >
-        <input 
-            name="senha"
-            type="password"
-            placeholder="*****" 
-            class="form-control"
-        >
-        <div class="row">
-            <button>Entrar</button>
-            <button>Cadastrar</button>
+    <!-- Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <!-- Branding Side -->
+        <div class="login-branding">
+            <div class="logo">
+                <div class="logo-icon">💎</div>
+                <span style="font-size: 1.8rem; font-weight: bold;">LaserPro</span>
+            </div>
+            <div class="branding-content">
+                <h1>Bem-vindo de volta!</h1>
+                <p>Gerencie sua clínica com a melhor tecnologia de depilação a laser do mercado.</p>
+            </div>
+            <ul class="features-list">
+                <li>✅ Acesso rápido aos equipamentos</li>
+                <li>✅ Histórico de manutenções</li>
+                <li>✅ Suporte 24/7 especializado</li>
+                <li>✅ Relatórios de performance</li>
+            </ul>
         </div>
-    </form>
+
+        <!-- Login Form -->
+        <div class="login-form">
+            <div class="form-header">
+                <h2>Faça seu Login</h2>
+                <p>Entre com suas credenciais para continuar</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" class="input-field" id="email" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Senha</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" class="input-field" id="password" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span>Lembrar-me</span>
+                    </label>
+                    <a href="#" class="forgot-password" onclick="showNotification('Funcionalidade em desenvolvimento', 'warning')">Esqueci minha senha</a>
+                </div>
+
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span class="btn-loading">
+                        <span class="spinner" id="loginSpinner" style="display: none;"></span>
+                        Entrar na Plataforma
+                    </span>
+                </button>
+            </form>
+
+            <div class="social-login">
+                <p>Ou continue com</p>
+                <div class="social-buttons">
+                    <a href="#" class="social-btn" onclick="socialLogin('google')">
+                        <span>🌐</span> Google
+                    </a>
+                    <a href="#" class="social-btn" onclick="socialLogin('facebook')">
+                        <span>📘</span> Facebook
+                    </a>
+                </div>
+            </div>
+
+            <div class="register-link">
+                <p>Não tem uma conta?</p>
+                <a href="#" class="register-btn" onclick="goToRegister()">
+                    Criar nova conta <span>→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
     <script>
-        alert('Caregando ...')
+        // Credenciais de exemplo (apenas para demo)
+        const validCredentials = {
+            'admin@laserpro.com': 'admin123',
+            'demo@laserpro.com': 'demo123'
+        };
+
+        // Criar partículas de fundo
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Mostrar notificação
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+        }
+
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const loginSpinner = document.getElementById('loginSpinner');
+            const loadingOverlay = document.getElementById('loadingOverlay');
+
+            // Simular validação
+            if (!email || !password) {
+                showNotification('Por favor, preencha todos os campos!', 'error');
+                return;
+            }
+
+            // Desabilitar botão e mostrar loading
+            loginBtn.disabled = true;
+            loginSpinner.style.display = 'inline-block';
+            loadingOverlay.classList.add('show');
+
+            // Simular delay de autenticação
+            setTimeout(() => {
+                // Verificar credenciais
+                if (validCredentials[email] && validCredentials[email] === password) {
+                    showNotification('Login realizado com sucesso! Redirecionando...', 'success');
+                    
+                    // Simular redirecionamento após 2s
+                    setTimeout(() => {
+                        // Em produção, redirecionar para dashboard
+                        window.location.href = 'dashboard.html'; // ou window.location.href = './index.html';
+                    }, 2000);
+                } else {
+                    showNotification('Email ou senha incorretos!', 'error');
+                    loginBtn.disabled = false;
+                    loginSpinner.style.display = 'none';
+                    loadingOverlay.classList.remove('show');
+                    
+                    // Limpar senha
+                    document.getElementById('password').value = '';
+                }
+            }, 1500);
+        });
+
+        // Social Login
+        function socialLogin(provider) {
+            showNotification(`Login com ${provider} em desenvolvimento...`, 'warning');
+        }
+
+        // Ir para registro
+        function goToRegister() {
+            showNotification('Redirecionando para cadastro...', 'success');
+            // Em produção: window.location.href = 'register.html';
+            setTimeout(() => {
+                alert('Página de cadastro em desenvolvimento!');
+            }, 1000);
+        }
+
+        // Focar no email ao carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            document.getElementById('email').focus();
+
+            // Enter na senha faz login
+            document.getElementById('password').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+                }
+            });
+
+            // Animação de digitação nos inputs
+            const inputs = document.querySelectorAll('.input-field');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                });
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'scale(1)';
+                });
+            });
+        });
+
+        // Easter egg: credenciais de demo
+        console.log('%c👋 Credenciais de Demo:', 'color: #8B5CF6; font-size: 16px; font-weight: bold;');
+        console.log('Email: admin@laserpro.com');
+        console.log('Senha: admin123');
+        console.log('Email: demo@laserpro.com');
+        console.log('Senha: demo123');
     </script>
 </body>
 </html>
